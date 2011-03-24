@@ -109,7 +109,8 @@ class View{
     return $this;
   }
 
-  public function set($prop, $val){ // set template, uni title, lang ... etc
+  public function set($prop, $val)
+  { // set template, uni title, lang ... etc
     $this->{'_'.$prop} = $val;
     return $this;
   }

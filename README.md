@@ -14,9 +14,9 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - [Codeigniter Carabiner library](https://github.com/dreamerslab/Carabiner)
 
 ## Features
-  - Manage layouts, page title, metas, css and js with YAML file
+  - Manage layouts, page title, metas, css and js with YAML file. Therefore you can have a cleaner and lighter controller
   - Default configs can be overwritten in controller config
-  - Combine and minify css and js files in production mode
+  - Combine and minify css and js files in production mode for faster page loading
 
 ## Installation
   - Copy all files in the libraries folder to your application libraries folder, including  `carabiner.php`, `cssmin`, `curl`, `jsmin`, `view`, `Yaml.php`, and all files in `Yaml` folder.
@@ -30,7 +30,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   
 <!-- -->
 
-> view files structure example    
+> View files structure example    
 
     - [views]
       - [common] // common partials
@@ -63,7 +63,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 <!---->
 
-> in the layout file inside head tag
+> In the layout file inside head tag
 
     // this will print out all css link tag
     <?$this->view->asset('css')?>
@@ -82,7 +82,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 <!---->
 
-> in the controller
+> In the controller
 
     public function index()
     {
@@ -106,7 +106,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 <!---->
 
-> in the layout file inside head tag
+> In the layout file inside head tag
 
     // this will print out all meta tags
     <?$this->view->metas()?>
@@ -120,7 +120,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   
 <!---->
 
-> in the controller
+> In the controller
 
     public function index()
     {
@@ -149,7 +149,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   
 <!---->
     
-> in the layout or action view files. ex. about/index.php
+> In the layout or action view files. ex. about/index.php
     
     // render partial 'common/_sub_nav.php' in 'about/index.php'
     <?
@@ -169,7 +169,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   
 <!---->
 
-> in the controller
+> In the controller
 
     public function index()
     {
@@ -178,7 +178,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     }
 
 #### set($prop, $val)
-  - description: 
+  - description: set 
   - argument data type: 
   - default value: 
   - possible value: 
@@ -186,6 +186,16 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   
 <!---->
 
+#### title()
+  - description: print out the title tag
+  - sample code
+  
+<!---->
+
+> In the layout file inside head tag
+  
+    // this will print out the title tag
+    <?$this->view->title()?>
 
 ## Development
   - Set `$config['dev'] = TRUE;` in `application/config/carabiner.php` (around line 63)
