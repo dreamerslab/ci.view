@@ -52,6 +52,9 @@ Therefore I wrote this view library for codeigniter, you will find this really u
         
 > It is not necessary to name your partial with a underscore, we do so just to make ourself distinguish between action views and partials easier.
 
+## YAML Configs
+
+
 ## Public Methods
 
 #### asset($type)
@@ -178,13 +181,48 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     }
 
 #### set($prop, $val)
-  - description: set 
-  - argument data type: 
-  - default value: 
+  - description: render partial in action view
+  - Arguments:
+
+> $prop
+
+  - description: the property to be set
+  - data type: string
+  - default value: there is no default value
+  - possible value: 'lang', 'controller', 'action', 'layout', 'uni_title'
+
+> $val
+
+  - description: the value of the property to be set
+  - data type: string
+  - default value: there is no default value
   - possible value: 
+    - lang: 
+      - 'en', 'tw'....
+    - controller: 
+      - description: what controller config you want to apply to the current action
+      - possible value: 'shops', 'carts' ...
+    - action:
+      - description: what action config you want to apply to the current action
+      - possible value: 'index', 'show' ...
+    - 'layout'
+      - description: what layout you want to use
+      - possible value: 'admin', 'shops' ...
+    - 'uni_title'
+      - description: generate a unique title using meta description
+      - default value: true
+      - possible value: true, false
   - sample code
-  
+
 <!---->
+
+> In the controller
+
+    // set 'send' action asset files the same as 'sent' action
+    public function send()
+    {
+      $this->view->set('action', 'sent')->render();
+    }
 
 #### title()
   - description: print out the title tag
