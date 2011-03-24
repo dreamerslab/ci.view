@@ -23,10 +23,11 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   
   - Copy `carabiner.php` in the config folder to your application config folder.
   - Copy `application_helper.php` in the helpers folder to your application helpers folder.
-  - Create a folder call `common` in your views folder. Copy `samples/config/common/config.yml` to ``
+  - Create a folder call `common` in your views folder. Copy `examples/config/common/config.yml` to ``
   
 ## Setup
   - Set css, js and cache folder( the place to store combined css, js) in `application/config/carabiner.php`. Normally you just need to create these folders in the same directory as your index.php folder.
+  - Auto load libraries 'yaml', 'carabiner', 'view' and helpers 'application', 'html', 'url' in `application/config/autoload.php`.
   - Structure your partials, views and layouts. 
     - Put common partials and default configs in `application/views/common` folder.
     - Map `folder name` to `controller name` and `action name` to `file name`.
@@ -75,13 +76,13 @@ Therefore I wrote this view library for codeigniter, you will find this really u
       metas:
         # http metas goes here,
         https:
-          content-type: 'text/html; charset=utf-8'
-          content-language: 'en-US'
+          content-type: text/html; charset=utf-8
+          content-language: en-US
 
         name:
-          keywords: > default, description, about, this, site
+          keywords: default, description, about, this, site
           description: default description about this site
-          robots: > index, follow
+          robots: index, follow
 
       css:
         # for those css file hosted on cdn you do not want to combine and minify put theme here
@@ -97,7 +98,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
       # the usage is the same as css above
       js:
         cdn:
-          - 'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min'    
+          - https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min   
 
         site:
           - common/lang
@@ -111,7 +112,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     # common settings for all actions in this controller
     common:
       has_layout: true
-      
+  
       # use different layout for all actions in this controller
       layout: admin
 
@@ -122,8 +123,8 @@ Therefore I wrote this view library for codeigniter, you will find this really u
         https:
 
         name:
-          keywords: > keywords, for, all, actions, in, this, controller
-          description: > description for all actions in this controller
+          keywords: keywords, for, all, actions, in, this, controller
+          description: description for all actions in this controller
 
       css:
         cdn:
@@ -136,7 +137,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
           - some js on cdn for all actions in this controller
         site:
           - local js for all actions in this controller
-          
+      
     # configs for each action
     index:
       title:
@@ -146,8 +147,8 @@ Therefore I wrote this view library for codeigniter, you will find this really u
         https:
 
         name:
-          keywords: > keywords, for, this, actions, only
-          description: > description for this action only
+          keywords: keywords, for, this, actions, only
+          description: description for this action only
 
       css:
         cdn:
@@ -160,12 +161,14 @@ Therefore I wrote this view library for codeigniter, you will find this really u
           - some js on cdn for this action only
         site:
           - local js for this action only
-    
+
     some_other_action:
       # set this to false if you do not want to apply layout for this action
       has_layout: false
-      
+  
     # more action configs goes here, just follow the pattern above
+
+
     
 ## IMPORTANT
 > If you have 4 js files listed in `application/views/common/config.yml`, 3 js files listed in `common` section and 2 files listed in `[action name]` section in `application/views/[controller name]/config.yml`. You will have 3 files in total in `production mode`. The first file will be used through out the `whole application`, the second file will be used in `all actions in this controller` and the last file will be used in that `specific action` only.
@@ -196,7 +199,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
         <?$this->view->asset('js')?>
       </body>
     </html>
-    xczp
+    
 ## Public Methods
 
 #### asset($type)
@@ -204,7 +207,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - argument data type: string
   - default value: there is no default value
   - possible value: 'css', 'js'
-  - sample code
+  - example code
 
 <!---->
 
@@ -223,7 +226,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - argument data type: array
   - default value: there is no default value
   - possible value: 'css', 'js'
-  - sample code
+  - example code
 
 <!---->
 
@@ -247,7 +250,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 #### metas()
   - description: print out all meta tags
-  - sample code
+  - example code
 
 <!---->
 
@@ -261,7 +264,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - argument data type: array, string, integer, bool
   - default value: null
   - possible value: any data you want to pass to the action view
-  - sample code
+  - example code
   
 <!---->
 
@@ -290,7 +293,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - data type: array, string, integer, bool
   - default value: null
   - possible value: any data you want to pass to the partial
-  - sample code
+  - example code
   
 <!---->
     
@@ -310,7 +313,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - argument data type: array, string, integer, bool
   - default value: null
   - possible value: any data you want to pass to the action view
-  - sample code
+  - example code
   
 <!---->
 
@@ -354,7 +357,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
       - description: generate a unique title using meta description
       - default value: true
       - possible value: true, false
-  - sample code
+  - example code
 
 <!---->
 
@@ -368,7 +371,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 #### title()
   - description: print out the title tag
-  - sample code
+  - example code
   
 <!---->
 
@@ -385,6 +388,9 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - Set `$config['dev'] = FALSE;` in `application/config/carabiner.php` (around line 63)
   - In production mode all css and js file will be minified and combined
   - *Make sure your assets/cache folder is writable
+
+## Demo
+Drop example_site folder to your web root, go to http://localhost/example_site/ to see how it works.
 
 ## License
 

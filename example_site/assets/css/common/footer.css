@@ -1,0 +1,26 @@
+/* line 3, ../../../app/sass/common/footer.sass */
+#footer {
+  text-align: center;
+  font-size: 13px;
+  padding: 30px 0;
+  line-height: 16px;
+}
+/* line 9, ../../../app/sass/common/footer.sass */
+#footer a {
+  position: relative;
+  color: #333333;
+  text-decoration: underline;
+}
+/* line 14, ../../../app/sass/common/footer.sass */
+#footer a:hover {
+  top: 1px;
+}
+
+/* line 17, ../../../app/sass/common/footer.sass */
+#logo-s {
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 10px;
+  background: url("/favicon.png") no-repeat;
+}

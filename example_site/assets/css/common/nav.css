@@ -1,0 +1,43 @@
+#nav {
+  padding: 20px 0 0;
+  float: right;
+  display: inline;
+}
+
+#nav li {
+  float: left;
+  display: inline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#nav a {
+  margin: 0 20px 0 0;
+  padding: 0 10px 5px;
+  height: 60px;
+  display: block;
+}
+
+#nav a:hover {
+  border-bottom: 5px #4daae8 solid;
+}
+
+#nav a:hover h3 {
+  color: #cccccc;
+}
+
+#nav h3 {
+  color: #171717;
+  line-height: 42px;
+  padding: 18px 0 0;
+}
+
+#nav .selected {
+  border-bottom: 5px #0066cc solid;
+}
+
+#nav .selected h3 {
+  color: #757575;
+}

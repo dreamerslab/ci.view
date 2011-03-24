@@ -1,0 +1,11 @@
+#logo {
+  font-size: 80px;
+  line-height: 1.5em;
+  float: left;
+  display: inline;
+}
+
+#logo a {
+  font-weight: normal;
+  color: #555555;
+}

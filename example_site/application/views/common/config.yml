@@ -1,0 +1,38 @@
+has_layout: true
+
+layout:
+  default
+
+default:
+  title: default title for the entire application
+
+  metas:
+    https:
+      content-type: text/html; charset=utf-8
+      content-language: en-US
+
+    name:
+      keywords: default, description, about, this, site
+      description: default description about this site
+      robots: index, follow
+
+  css:
+    site:
+      - lib/jquery.msg
+      - common/reset
+      - common/util
+      - common/base
+      - common/header
+      - common/nav  
+      - common/sub_nav
+      - common/footer
+
+  js:
+    cdn:
+      - https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min   
+
+    site:
+      - lib/jquery.center
+      - lib/jquery.msg
+      - common
+      

@@ -1,0 +1,24 @@
+#main-content {
+  width: 600px;
+}
+#sidebar {
+  font-size: 16px;
+  width: 300px;
+  background: #aaaaaa;
+  padding: 20px 0 20px 20px;
+  -webkit-background-clip: padding-box;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#sidebar a {
+  color: white;
+}
+
+#sidebar a:hover{
+  color: black;
+}

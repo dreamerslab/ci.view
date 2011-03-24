@@ -1,0 +1,144 @@
+/* line 4, ../../app/sass/contact.sass */
+#content h2 {
+  font-size: 34px;
+}
+
+/* line 7, ../../app/sass/contact.sass */
+.row {
+  padding: 0 0 18px;
+}
+
+/* line 10, ../../app/sass/contact.sass */
+#email {
+  padding: 0 0 40px;
+}
+
+/* line 13, ../../app/sass/contact.sass */
+#form {
+  width: 460px;
+}
+/* line 16, ../../app/sass/contact.sass */
+#form label {
+  font-size: 24px;
+  display: block;
+}
+/* line 20, ../../app/sass/contact.sass */
+#form label.error {
+  color: red;
+  font-size: 16px;
+}
+/* line 24, ../../app/sass/contact.sass */
+#form input {
+  font-family: Georgia;
+  border: none;
+}
+/* line 28, ../../app/sass/contact.sass */
+#form input.text {
+  -webkit-background-clip: padding-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -pie-lazy-init: true;
+  behavior: url(/PIE.htc);
+  -webkit-box-shadow: inset 0 0 10px 0 #555555;
+  -moz-box-shadow: inset 0 0 10px 0 #555555;
+  box-shadow: inset 0 0 10px 0 #555555;
+  background: #f7f7e9;
+  font-size: 24px;
+  padding: 3px 5px;
+  border: 1px solid #cccccc \9;
+}
+/* line 36, ../../app/sass/contact.sass */
+#form textarea {
+  -webkit-background-clip: padding-box;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -pie-lazy-init: true;
+  behavior: url(/PIE.htc);
+  -webkit-box-shadow: inset 0 0 15px 0 #555555;
+  -moz-box-shadow: inset 0 0 15px 0 #555555;
+  box-shadow: inset 0 0 15px 0 #555555;
+  font-family: Georgia;
+  letter-spacing: 2px;
+  color: #111111;
+  padding: 5px 15px;
+  font-size: 24px;
+  line-height: 1.6em;
+  border: none;
+  background: #f7f7e9;
+  overflow: auto;
+  width: 366px;
+  height: 248px;
+  border: 1px solid #cccccc \9;
+}
+/* line 52, ../../app/sass/contact.sass */
+#form .btn {
+  -webkit-background-clip: padding-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  -pie-lazy-init: true;
+  behavior: url(/PIE.htc);
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.6);
+  -pie-lazy-init: true;
+  behavior: url(/PIE.htc);
+  background-color: #eeeeee;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), color-stop(100%, #aaaaaa));
+  background: -moz-linear-gradient(top, #eeeeee, #aaaaaa 100%);
+  background: linear-gradient(top, #eeeeee, #aaaaaa 100%);
+  -pie-background: linear-gradient(#eeeeee, #aaaaaa);
+  -pie-lazy-init: true;
+  behavior: url(/PIE.htc);
+  font-family: Georgia;
+  font-weight: lighter;
+  color: #333333;
+  font-size: 18px;
+  line-hight: 18px;
+  padding: 5px 8px;
+  cursor: pointer;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  filter: Shadow(Color=white, Direction=180, Strength=1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+/* line 56, ../../app/sass/contact.sass */
+#form .btn-down {
+  -webkit-box-shadow: inset 0 0 10px 3px #555555;
+  -moz-box-shadow: inset 0 0 10px 3px #555555;
+  box-shadow: inset 0 0 10px 3px #555555;
+}
+
+/* line 59, ../../app/sass/contact.sass */
+#info {
+  width: 460px;
+  text-align: right;
+}
+/* line 63, ../../app/sass/contact.sass */
+#info span {
+  font-size: 24px;
+  display: block;
+}
+/* line 67, ../../app/sass/contact.sass */
+#info .row {
+  padding: 0 0 18px;
+}
+
+/* line 70, ../../app/sass/contact.sass */
+#fb-comments {
+  width: 800px;
+  margin: 0 auto 30px;
+}

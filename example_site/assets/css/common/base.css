@@ -1,0 +1,82 @@
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4, h5, h6 {
+  font-size: 24px;
+}
+
+li {
+  list-style-position: outside;
+  list-style-image: none;
+  list-style-type: none;
+}
+
+a {
+  color: #999999;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+body {
+  font-family: Georgia;
+  font-size: 18px;
+  color: #555555;
+  line-height: 1em;
+  background-color: #f0f4f8;
+}
+
+#wrap {
+  width: 960px;
+  margin: 0 auto;
+}
+
+#content{
+  width: 100%;
+  line-height: 2em;
+}
+
+#content h3, #content h4, #content h5, #content h6 {
+  font-weight: normal;
+  letter-spacing: 0;
+}
+
+#content h2 {
+  line-height: 1.1em;
+  color: #444444;
+  padding: 0 0 30px;
+  text-align: center;
+}
+
+#content p {
+  letter-spacing: 2px;
+  text-indent: 30px;
+  padding: 0 0 20px;
+}
+
+#content a {
+  position: relative;
+  color: #333333;
+  text-decoration: underline;
+}
+
+#content a:hover {
+  color: #0066cc;
+}
+
+.spliter {
+  border-top: 1px solid #dddfe1;
+  border-bottom: 1px solid white;
+  padding: 0 !important;
+  height: 0 !important;
+  _line-height: 0 !important;
+  _overflow: hidden !important;
+}

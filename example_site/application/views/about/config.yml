@@ -1,0 +1,49 @@
+# actions
+# common settings for all actions in this controller
+common:
+  title: this will be the default title in about controller
+  css:
+    site:
+      - lib/jquery.fancybox
+      - about/common
+      
+  js:
+    site:
+      - lib/jquery.mousewheel
+      - lib/jquery.fancybox
+      
+# configs for each action
+index:
+  title: title for about/index page
+
+  metas:
+    name:
+      keywords: keywords, for, index, action, only
+      description: description for index action only
+
+  css:
+    site:
+      - about/index
+
+  js:
+    site:
+      - about/index
+      
+site:
+  title: title for about/site page
+    
+  metas:
+    name:
+      keywords: keywords, for, site, actions, only
+      description:  description for site action only
+      
+  js:
+    site:
+      - about/site
+
+author:
+  css:
+    site:
+      - about/author
+      
+      

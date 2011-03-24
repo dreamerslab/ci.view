@@ -1,0 +1,11 @@
+common:
+  css:
+    site:
+      - contact
+
+  js:
+    site:
+      - lib/jquery.preload
+      - lib/jquery.validate
+      - lib/jquery.form
+      - contact
