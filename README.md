@@ -14,16 +14,16 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - [Codeigniter Carabiner library](https://github.com/dreamerslab/Carabiner)
 
 ## Features
-  - Manage layouts, page title, metas, css and js with YAML file. Therefore you can have a cleaner and lighter controller
-  - Default configs can be overwritten in controller config
-  - Combine and minify css and js files in production mode for faster page loading
+  - Manage layouts, page title, metas, css and js with YAML file for cleaner and lighter controllers.
+  - Default configs can be overwritten in controller config.
+  - Combine and minify css and js files in production mode for faster page loading.
 
 ## Installation
   - Copy all files in the libraries folder to your application libraries folder, including  `carabiner.php`, `cssmin`, `curl`, `jsmin`, `view`, `Yaml.php`, and all files in `Yaml` folder.
   
   - Copy `carabiner.php` in the config folder to your application config folder.
   - Copy `application_helper.php` in the helpers folder to your application helpers folder.
-  
+  - Create a folder call `common` in your views folder. Copy 
 ## Setup
   - Set css, js and cache folder( the place to store combined css, js) in `application/config/carabiner.php`. Normally you just need to create these folders in the same directory as your index.php folder.
   - Structure your partials, views and layouts
@@ -53,6 +53,50 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 > It is not necessary to name your partial with a underscore, we do so just to make ourself distinguish between action views and partials easier.
 
 ## YAML Configs
+
+>  application/views/common/config.yml
+
+    # set to false if you don't want to use layout for default configs
+    has_layout: true
+
+    # default layout name
+    layout:
+      default
+
+    #layouts
+    default:
+      title: default title for the entire application
+
+      metas:
+        # http metas goes here,
+        https:
+          content-type: 'text/html; charset=utf-8'
+          content-language: 'en-US'
+
+        name:
+          keywords: > default, description, about, this, site
+          description: default description about this site
+          robots: > index, follow
+
+      css:
+        # for those css file hosted on cdn you do not want to combine and minify put theme here
+        cdn:
+
+        # all the files here will be combined to one css file  
+        site:
+          - common/reset
+          - common/util
+          - common/header
+          - common/main
+
+      # the usage is the same as css above
+      js:
+        cdn:
+          - 'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min'    
+
+        site:
+          - common/lang
+          - common/tabs
 
 
 ## Public Methods
