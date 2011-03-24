@@ -130,16 +130,17 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 #### partial($partial_path, $data=null)
   - description: render partial in action view
+  - Arguments:
 
-> Arguments
+> $partial_path
 
-##### $partial_path
   - description: the path of the partial
   - data type: string
   - default value: there is no default value
   - possible value: 'common/_nav', 'about/_lang' ...
 
-##### $data
+> $data
+
   - description: data you want to pass to the partial
   - data type: array, string, integer, bool
   - default value: null
@@ -191,7 +192,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - In development mode all css and js file will not be minified nor combined
 
 ## Production
-  - set `$config['dev'] = FALSE;` in `application/config/carabiner.php` (around line 63)
+  - Set `$config['dev'] = FALSE;` in `application/config/carabiner.php` (around line 63)
   - In production mode all css and js file will be minified and combined
   - *Make sure your assets/cache folder is writable
 
