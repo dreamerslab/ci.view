@@ -29,8 +29,9 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - Structure your partials, views and layouts
   
 <!-- -->
-    
-    // view files structure example
+
+> view files structure example    
+
     - [views]
       - [common] // common partials
         - _nav.php // partial name starts with a underscore
@@ -62,7 +63,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 <!---->
 
->in your layout file inside head tag
+> in the layout file inside head tag
 
     // this will print out all css link tag
     <?$this->view->asset('css')?>
@@ -80,20 +81,83 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - sample code
 
 <!---->
-    // in controller
-    
-    $this->view->config(array(
-      'js' => array(
-        'cdn' => array(
-          'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min'
+
+> in the controller
+
+    public function index()
+    {
+      $this->view->config(array(
+        'js' => array(
+          'cdn' => array(
+            'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min'
+          ),
+          'site' => array('some_util_js','another_util_js')
         ),
-        'site' => array('some_util_js','another_util_js')
-      ),
-      'css' => array(
-        'site' => array('some_util_js','another_util_js')
-      )
-    ));
+        'css' => array(
+          'site' => array('some_util_js','another_util_js')
+        )
+      ));
+    }
+
+
+#### metas()
+  - description: print out all meta tags
+  - sample code
+
+<!---->
+
+> in the layout file inside head tag
+
+    // this will print out all meta tags
+    <?$this->view->metas()?>
     
+#### parse($data=null)
+  - description: parse action views using codeigniter [Template Parser Class](http://codeigniter.com/user_guide/libraries/parser.html)
+  - argument data type: array, string, integer, bool
+  - default value: null
+  - possible value: any data you want to pass to the action view
+  - sample code
+  
+<!---->
+
+> in the controller
+
+    public function index()
+    {
+      $data['nav_selected'] = 'about';
+      $this->view->parse($data);
+    }
+
+#### partial($partial_path, $data=null)
+  - description: render partial in action view
+
+> Arguments
+
+##### $partial_path
+  - description: the path of the partial
+  - data type: string
+  - default value: there is no default value
+  - possible value: 'common/_nav', 'about/_lang' ...
+
+##### $data
+  - description: data you want to pass to the partial
+  - data type: array, string, integer, bool
+  - default value: null
+  - possible value: any data you want to pass to the partial
+  - sample code
+  
+<!---->
+    
+> in the layout or action view files. ex. about/index.php
+
+    <?
+      $this->view->partial('common/_sub_nav', array(
+        'sub_nav' => array(
+          array('title' => lang('works.apps'), 'href' => 'apps'),
+          array('title' => lang('works.open_source'), 'href' => 'open-source')
+      )));
+    ?>
+
 ## Development
   - Set `$config['dev'] = TRUE;` in `application/config/carabiner.php` (around line 63)
   - In development mode all css and js file will not be minified nor combined
