@@ -1,0 +1,60 @@
+# actions
+# common settings for all actions in this controller
+common:
+  has_layout: true
+  
+  # use different layout for all actions in this controller
+  layout: admin
+
+  title: some different title for all actions in this controller
+
+  metas:
+    # add as many metas as you wish
+    https:
+
+    name:
+      keywords: > keywords, for, all, actions, in, this, controller
+      description: > description for all actions in this controller
+
+  css:
+    cdn:
+      - some css on cdn for all actions in this controller
+    site:
+      - local css for all actions in this controller
+
+  js:
+    cdn:
+      - some js on cdn for all actions in this controller
+    site:
+      - local js for all actions in this controller
+      
+# configs for each action
+index:
+  title:
+    some different title for this action
+
+  metas:
+    https:
+
+    name:
+      keywords: > keywords, for, this, actions, only
+      description: > description for this action only
+
+  css:
+    cdn:
+      - some css on cdn for this action only
+    site:
+      - local css for this action only
+
+  js:
+    cdn:
+      - some js on cdn for this action only
+    site:
+      - local js for this action only
+
+some_other_action:
+  # set this to false if you do not want to apply layout for this action
+  has_layout: false
+  
+# more action configs goes here, just follow the pattern above
+

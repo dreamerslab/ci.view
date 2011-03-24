@@ -23,10 +23,17 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   
   - Copy `carabiner.php` in the config folder to your application config folder.
   - Copy `application_helper.php` in the helpers folder to your application helpers folder.
-  - Create a folder call `common` in your views folder. Copy 
+  - Create a folder call `common` in your views folder. Copy `samples/config/common/config.yml` to ``
+  
 ## Setup
   - Set css, js and cache folder( the place to store combined css, js) in `application/config/carabiner.php`. Normally you just need to create these folders in the same directory as your index.php folder.
-  - Structure your partials, views and layouts
+  - Structure your partials, views and layouts. 
+    - Put common partials and default configs in `application/views/common` folder.
+    - Map `folder name` to `controller name` and `action name` to `file name`.
+    - If you want to overwrite or add extra configs create a `config.yml` in [controller name] folder.
+    - Note that title and metas can be add and overwritten but css and js can not be overwrite but only added.
+    - You can also overwrite configs in the controller using `$this->view->config();`. More detail please see the `Public Methods` part.
+    - Partial name starts with a underscore. It is not necessary but it makes us distinguish between action views and partials easier.
   
 <!-- -->
 
@@ -49,12 +56,10 @@ Therefore I wrote this view library for codeigniter, you will find this really u
         - show.php
         - _sidebar.php // partial for this controller only
         - config.yml // you can add extra css, js or overwrite page title and metas 
-        
-> It is not necessary to name your partial with a underscore, we do so just to make ourself distinguish between action views and partials easier.
 
 ## YAML Configs
 
->  application/views/common/config.yml
+> Set your default configs in `application/views/common/config.yml`
 
     # set to false if you don't want to use layout for default configs
     has_layout: true
@@ -97,8 +102,101 @@ Therefore I wrote this view library for codeigniter, you will find this really u
         site:
           - common/lang
           - common/tabs
+          
+    # you can add more layout here, just follow the pattern above
 
+> Add more css or js in different controller and action configs in `application/views/[controller name]/config.yml`
 
+    # actions
+    # common settings for all actions in this controller
+    common:
+      has_layout: true
+      
+      # use different layout for all actions in this controller
+      layout: admin
+
+      title: some different title for all actions in this controller
+
+      metas:
+        # add as many metas as you wish
+        https:
+
+        name:
+          keywords: > keywords, for, all, actions, in, this, controller
+          description: > description for all actions in this controller
+
+      css:
+        cdn:
+          - some css on cdn for all actions in this controller
+        site:
+          - local css for all actions in this controller
+
+      js:
+        cdn:
+          - some js on cdn for all actions in this controller
+        site:
+          - local js for all actions in this controller
+          
+    # configs for each action
+    index:
+      title:
+        some different title for this action
+
+      metas:
+        https:
+
+        name:
+          keywords: > keywords, for, this, actions, only
+          description: > description for this action only
+
+      css:
+        cdn:
+          - some css on cdn for this action only
+        site:
+          - local css for this action only
+
+      js:
+        cdn:
+          - some js on cdn for this action only
+        site:
+          - local js for this action only
+    
+    some_other_action:
+      # set this to false if you do not want to apply layout for this action
+      has_layout: false
+      
+    # more action configs goes here, just follow the pattern above
+    
+## IMPORTANT
+> If you have 4 js files listed in `application/views/common/config.yml`, 3 js files listed in `common` section and 2 files listed in `[action name]` section in `application/views/[controller name]/config.yml`. You will have 3 files in total in `production mode`. The first file will be used through out the `whole application`, the second file will be used in `all actions in this controller` and the last file will be used in that `specific action` only.
+
+## Layouts
+> A real simple layout example
+
+    <?=doctype('xhtml1-trans')?>
+      <head>
+        <?$this->view->metas()?>
+        <?$this->view->title()?>
+        <?$this->view->asset('css')?>
+        <?=link_tag( base_url().'favicon.png', 'shortcut icon', 'image/ico')?>
+      </head>
+      <body>
+        <div id="wrap">
+          <div id="header">
+            <h1><?=$title?></h1>
+            <p>A real simple layout example</p>
+          </div>
+          <div id="content">
+            <?=$yield?>
+          </div>
+          <div id="footer">
+            Your footer goes here
+          </div>
+        </div>
+        <?$this->view->asset('js')?>
+      </body>
+    </html>
+    xczp
 ## Public Methods
 
 #### asset($type)
