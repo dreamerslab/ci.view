@@ -149,7 +149,8 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 <!---->
     
 > in the layout or action view files. ex. about/index.php
-
+    
+    // render partial 'common/_sub_nav.php' in 'about/index.php'
     <?
       $this->view->partial('common/_sub_nav', array(
         'sub_nav' => array(
@@ -157,6 +158,33 @@ Therefore I wrote this view library for codeigniter, you will find this really u
           array('title' => lang('works.open_source'), 'href' => 'open-source')
       )));
     ?>
+
+#### render($data=null)
+  - description: render action views
+  - argument data type: array, string, integer, bool
+  - default value: null
+  - possible value: any data you want to pass to the action view
+  - sample code
+  
+<!---->
+
+> in the controller
+
+    public function index()
+    {
+      $data['nav_selected'] = 'about';
+      $this->view->render($data);
+    }
+
+#### set($prop, $val)
+  - description: 
+  - argument data type: 
+  - default value: 
+  - possible value: 
+  - sample code
+  
+<!---->
+
 
 ## Development
   - Set `$config['dev'] = TRUE;` in `application/config/carabiner.php` (around line 63)
