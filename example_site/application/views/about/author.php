@@ -6,7 +6,7 @@
       array('title' => 'Author', 'href' => site_url('about/author'), 'nav_selected' => 'Author')
   )));
 ?>
-<h2>About this site and author intro</h2>
+<h2>Something about the author</h2>
 <div class="spliter"></div>
 <div id="main" class="clearfix">
   <div id="main-content" class="float-r">

@@ -30,7 +30,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - Auto load libraries 'yaml', 'carabiner', 'view' and helpers 'application', 'html', 'url' in `application/config/autoload.php`.
   - Structure your partials, views and layouts. 
     - Put common partials and default configs in `application/views/common` folder.
-    - Map `folder name` to `controller name` and `action name` to `file name`.
+    - Map `folder name` to `controller name` and `file name` to `action name`.
     - If you want to overwrite or add extra configs create a `config.yml` in [controller name] folder.
     - Note that title and metas can be add and overwritten but css and js can not be overwrite but only added.
     - You can also overwrite configs in the controller using `$this->view->config();`. More detail please see the `Public Methods` part.
