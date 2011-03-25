@@ -6,7 +6,7 @@ layout:
   default
 
 #layouts
-default:
+default: // <-- this maps your layout file name
   title: default title for the entire application
 
   metas:
@@ -21,7 +21,7 @@ default:
       robots: index, follow
 
   css:
-    # for those css file hosted on cdn you do not want to combine and minify put theme here
+    # for those css file hosted on cdn you do not want to combine and minify put them here
     cdn:
 
     # all the files here will be combined to one css file  
@@ -40,4 +40,5 @@ default:
       - common/lang
       - common/tabs
       
-# you can add more layout here, just follow the pattern above
+# you can add more layouts here, just follow the pattern above
+

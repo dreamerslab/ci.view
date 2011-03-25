@@ -25,7 +25,8 @@ class View{
     $this->_unic = "{$this->_controller}_{$this->_action}";
     log_message('debug', 'View: Library initialized.');
   }
-
+  
+  // print out all css or js tag
   public function asset($type) // css, js
   {
     $asset = $this->_data[$type]; // ex. css
@@ -53,7 +54,8 @@ class View{
     log_message('debug', "View: function asset executed with {$type}.");
     return $this;
   }
-
+  
+  // modify or add config in controllers
   public function config($configs)
   {
     $this->_merge('css', $configs)
@@ -62,7 +64,8 @@ class View{
          ->_set('title', $this->_data, $configs);
     return $this;
   }
-
+  
+  // print out all meta tags
   public function metas()
   {
     if(isset($this->_data['metas']['https'])){
@@ -83,8 +86,9 @@ class View{
     
     return $this;
   }
-
-  // if using parse, data to be use in partial can only be set in controller
+  
+  // parse action views using codeigniter Template Parser Class
+  // with parse, data to be use in partial can only be set in controller
   public function parse($data=null)
   {
     $this->_yaml_configs();
@@ -94,14 +98,16 @@ class View{
     }
     return $this;
   }
-
+  
+  // render partial in action view
   public function partial($partial_path, $data=null)
   {
     echo $this->_CI->load->view($partial_path, $data, true);
     log_message('debug', 'View: render partial');
     return $this;
   }
-
+  
+  //render action views
   public function render($data=null)
   {
     $this->_yaml_configs();
@@ -111,13 +117,15 @@ class View{
     }
     return $this;
   }
-
+  
+  // set `library` configs
   public function set($prop, $val)
   { // set template, uni title, lang ... etc
     $this->{'_'.$prop} = $val;
     return $this;
   }
-
+  
+  // print out the title tag
   public function title()
   {
     echo "<title>{$this->_data['title']}</title>" ;

@@ -4,7 +4,7 @@ Advanced and flexible Codeigniter View library.
 
 ## Description
 
-[Codeigniter](http://codeigniter.com/) is my favorite PHP framework. However the 'view' part of this framework seems a little weak. One feature that I miss about [Symfony](http://bit.ly/16GFg) is its flexible layout, and assets management using yaml file.
+[Codeigniter](http://codeigniter.com/) is my favorite PHP framework. However the `view' part of this framework seems a little weak. One feature that I miss about [Symfony](http://bit.ly/16GFg) is its flexible layout, and assets management using yaml file.
 
 Therefore I wrote this view library for codeigniter, you will find this really useful when you have a big project with complex views, multiple css and js files.
 
@@ -19,22 +19,23 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - Combine and minify css and js files in production mode for faster page loading.
 
 ## Installation
-  - Copy all files in the libraries folder to your application libraries folder, including  `carabiner.php`, `cssmin`, `curl`, `jsmin`, `view`, `Yaml.php`, and all files in `Yaml` folder.
+  - Download this Codeigniter View Library.
+  - Copy all files in the libraries folder to your application libraries folder, including  `carabiner.php`, `cssmin`, `curl`, `jsmin`, `view`, `Yaml.php`, and all files in the `Yaml` folder.
   
   - Copy `carabiner.php` in the config folder to your application config folder.
   - Copy `application_helper.php` in the helpers folder to your application helpers folder.
-  - Create a folder call `common` in your views folder. Copy `examples/config/common/config.yml` to ``
+  - Create a folder name `common` in your views folder. Copy `examples/config/common/config.yml` to `application/views/common/`.
   
 ## Setup
-  - Set css, js and cache folder( the place to store combined css, js) in `application/config/carabiner.php`. Normally you just need to create these folders in the same directory as your index.php folder.
+  - Set css, js and cache folder( the place to store combined css, js) in `application/config/carabiner.php` file. Normally you just need to create these folders in the same directory as your index.php folder.
   - Auto load libraries 'yaml', 'carabiner', 'view' and helpers 'application', 'html', 'url' in `application/config/autoload.php`.
   - Structure your partials, views and layouts. 
     - Put common partials and default configs in `application/views/common` folder.
     - Map `folder name` to `controller name` and `file name` to `action name`.
     - If you want to overwrite or add extra configs create a `config.yml` in [controller name] folder.
-    - Note that title and metas can be add and overwritten but css and js can not be overwrite but only added.
+    - Note that `title` and `metas` can be add and overwritten but `css` and `js` can not be overwrite but only added.
     - You can also overwrite configs in the controller using `$this->view->config();`. More detail please see the `Public Methods` part.
-    - Partial name starts with a underscore. It is not necessary but it makes us distinguish between action views and partials easier.
+    - Partial name starts with a underscore. It is not necessary but it makes you distinguish between action views and partials easier.
   
 <!-- -->
 
@@ -70,7 +71,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
       default
 
     #layouts
-    default:
+    default: // <-- this maps your layout file name
       title: default title for the entire application
 
       metas:
@@ -85,7 +86,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
           robots: index, follow
 
       css:
-        # for those css file hosted on cdn you do not want to combine and minify put theme here
+        # for those css file hosted on cdn you do not want to combine and minify put them here
         cdn:
 
         # all the files here will be combined to one css file  
@@ -104,7 +105,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
           - common/lang
           - common/tabs
           
-    # you can add more layout here, just follow the pattern above
+    # you can add more layouts here, just follow the pattern above
 
 > Add more css or js in different controller and action configs in `application/views/[controller name]/config.yml`
 
@@ -222,7 +223,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     <?$this->view->asset('js')?>
 
 #### config($configs)
-  - description: modify or add config in controllers
+  - description: modify or add config in the controller
   - argument data type: array
   - default value: there is no default value
   - possible value: 'css', 'js'
@@ -261,6 +262,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     
 #### parse($data=null)
   - description: parse action views using codeigniter [Template Parser Class](http://codeigniter.com/user_guide/libraries/parser.html)
+  - IMPORTANT: with parse, data to be use in partial can only be set in controller
   - argument data type: array, string, integer, bool
   - default value: null
   - possible value: any data you want to pass to the action view
@@ -326,34 +328,32 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     }
 
 #### set($prop, $val)
-  - description: render partial in action view
+  - description: set `library` configs
   - Arguments:
 
 > $prop
 
   - description: the property to be set
   - data type: string
-  - default value: there is no default value
   - possible value: 'lang', 'controller', 'action', 'layout', 'uni_title'
 
 > $val
 
   - description: the value of the property to be set
   - data type: string
-  - default value: there is no default value
   - possible value: 
-    - lang: 
-      - 'en', 'tw'....
-    - controller: 
+    - with `$prop = 'lang'`: 
+      - possible value: 'en', 'tw'....
+    - with `$prop = 'controller'`: 
       - description: what controller config you want to apply to the current action
       - possible value: 'shops', 'carts' ...
-    - action:
+    - with `$prop = 'action'`:
       - description: what action config you want to apply to the current action
       - possible value: 'index', 'show' ...
-    - 'layout'
+    - with `$prop = 'layout'`:
       - description: what layout you want to use
       - possible value: 'admin', 'shops' ...
-    - 'uni_title'
+    - with `$prop = 'uni_title'`:
       - description: generate a unique title using meta description
       - default value: true
       - possible value: true, false
@@ -363,7 +363,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 > In the controller
 
-    // set 'send' action asset files the same as 'sent' action
+    // use 'sent' action asset files in 'send' action
     public function send()
     {
       $this->view->set('action', 'sent')->render();
