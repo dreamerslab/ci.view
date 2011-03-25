@@ -10,7 +10,8 @@ class Contact_Model extends CI_Model{
 	public function validate()
 	{
     $this->load->library('form_validation');
-
+    
+    // set validate ruls
     $config = array(
       array(
         'field'   => 'name',
@@ -44,6 +45,8 @@ class Contact_Model extends CI_Model{
     $this->load->library('email');
 
     $this->email->from($email, $name);
+    
+    // please do change this to your testing email account
     $this->email->to('demo@dreamerslab.com');
     $this->email->subject("Demo Site Comments");
     $this->email->message($comments);

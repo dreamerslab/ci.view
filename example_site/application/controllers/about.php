@@ -2,16 +2,17 @@
 
 class About extends CI_Controller{
   
-  private $_data;
-  
   public function __construct()
   {
     parent::__construct();
-    // add class 'selected' to navigation menu
-    $this->_data['nav_selected'] = 'about';
-    $this->view->render($this->_data);
+    
+    // add class 'selected' to navigation menu 
+    $data['nav_selected'] = 'about';
+    
+    // render views for all actions in this controller
+    $this->view->render($data);
   }
-
+  
   public function index()
   {
     
