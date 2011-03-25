@@ -225,8 +225,6 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 #### config($configs)
   - description: modify or add config in the controller
   - argument data type: array
-  - default value: there is no default value
-  - possible value: 'css', 'js'
   - example code
 
 <!---->
@@ -235,6 +233,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
     public function index()
     {
+      // add more js and css to action view and render the page
       $this->view->config(array(
         'js' => array(
           'cdn' => array(
@@ -243,11 +242,38 @@ Therefore I wrote this view library for codeigniter, you will find this really u
           'site' => array('some_util_js','another_util_js')
         ),
         'css' => array(
-          'site' => array('some_util_js','another_util_js')
+          'site' => array('some_util_css','another_util_css')
         )
-      ));
+      ))->render();
     }
 
+> Another more common use example
+
+  public function show()
+  { 
+    // load database and helper
+    $this->load->helper('url');
+    $this->load->database();
+    
+    // get product id form the uri
+    $product_id = $this->uri->segment(3, 0);
+    
+    // query db for this product
+    $product = $this->db
+                    ->get_where('products', array('id' => $product_id))
+                    ->first_row();
+    
+    // show different title, metas for each product page
+    $this->view->config(array(
+      'title' => $product->title,
+      'metas' => array(
+        'name' => array(
+          keywords => $product->keywords,
+          description => $product->description
+        )
+      )
+    ))->render();
+  }
 
 #### metas()
   - description: print out all meta tags
