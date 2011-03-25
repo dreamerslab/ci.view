@@ -418,6 +418,9 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 ## Demo
 Drop example_site folder to your web root, go to http://localhost/example_site/ to see how it works.
 
+## TODO
+Cache YAML file look up result in the next version.
+
 ## License
 
 The library is licensed under the MIT License (LICENSE.txt).
