@@ -249,31 +249,31 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 > Another more common use example
 
-  public function show()
-  { 
-    // load database and helper
-    $this->load->helper('url');
-    $this->load->database();
+    public function show()
+    { 
+      // load database and helper
+      $this->load->helper('url');
+      $this->load->database();
     
-    // get product id form the uri
-    $product_id = $this->uri->segment(3, 0);
+      // get product id form the uri
+      $product_id = $this->uri->segment(3, 0);
     
-    // query db for this product
-    $product = $this->db
-                    ->get_where('products', array('id' => $product_id))
-                    ->first_row();
+      // query db for this product
+      $product = $this->db
+                      ->get_where('products', array('id' => $product_id))
+                      ->first_row();
     
-    // show different title, metas for each product page
-    $this->view->config(array(
-      'title' => $product->title,
-      'metas' => array(
-        'name' => array(
-          keywords => $product->keywords,
-          description => $product->description
+      // show different title, metas for each product page
+      $this->view->config(array(
+        'title' => $product->title,
+        'metas' => array(
+          'name' => array(
+            keywords => $product->keywords,
+            description => $product->description
+          )
         )
-      )
-    ))->render();
-  }
+      ))->render();
+    }
 
 #### metas()
   - description: print out all meta tags
