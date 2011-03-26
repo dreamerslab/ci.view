@@ -12,12 +12,14 @@
         <p>A real simple layout example</p>
       </div>
       <div id="content">
+        <!-- yield this block for action view -->
         <?=$yield?>
       </div>
       <div id="footer">
         Your footer goes here
       </div>
     </div>
+    <!-- js file at the bottom for faster loading page -->
     <?$this->view->asset('js')?>
   </body>
 </html>

@@ -4,7 +4,7 @@ Advanced and flexible Codeigniter View library.
 
 ## Description
 
-[Codeigniter](http://codeigniter.com/) is my favorite PHP framework. However the `view' part of this framework seems a little weak. One feature that I miss about [Symfony](http://bit.ly/16GFg) is its flexible layout, and assets management using yaml file.
+[Codeigniter](http://codeigniter.com/) is my favorite PHP framework, it is very light weight and fast. However the `view' part of this framework seems a little weak. One feature that I miss about [Symfony](http://bit.ly/16GFg) is its flexible layout system, and assets management using yaml file.
 
 Therefore I wrote this view library for codeigniter, you will find this really useful when you have a big project with complex views, multiple css and js files.
 
@@ -15,12 +15,12 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 ## Features
   - Manage layouts, page title, metas, css and js with YAML file for cleaner and lighter controllers.
-  - Default configs can be overwritten in controller config.
+  - Default configs can be overwritten in controller configs.
   - Combine and minify css and js files in production mode for faster page loading.
 
 ## Installation
   - Download this Codeigniter View Library.
-  - Copy all files in the libraries folder to your application libraries folder, including  `carabiner.php`, `cssmin`, `curl`, `jsmin`, `view`, `Yaml.php`, and all files in the `Yaml` folder.
+  - Copy all files in the `libraries` folder to your application `libraries` folder, including  `carabiner.php`, `cssmin`, `curl`, `jsmin`, `view`, `Yaml.php`, and all files in the `Yaml` folder.
   
   - Copy `carabiner.php` in the config folder to your application config folder.
   - Copy `application_helper.php` in the helpers folder to your application helpers folder.
@@ -28,12 +28,12 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   
 ## Setup
   - Set css, js and cache folder( the place to store combined css, js) in `application/config/carabiner.php` file. Normally you just need to create these folders in the same directory as your index.php folder.
-  - Auto load libraries 'yaml', 'carabiner', 'view' and helpers 'application', 'html', 'url' in `application/config/autoload.php`.
+  - Auto load libraries `yaml`, `carabiner`, `view` and helpers `application`, `html`, `url` in `application/config/autoload.php`.
   - Structure your partials, views and layouts. 
     - Put common partials and default configs in `application/views/common` folder.
     - Map `folder name` to `controller name` and `file name` to `action name`.
     - If you want to overwrite or add extra configs create a `config.yml` in [controller name] folder.
-    - Note that `title` and `metas` can be add and overwritten but `css` and `js` can not be overwrite but only added.
+    - Note that `title` and `metas` can be add and overwritten but `css` and `js` can not be overwrite but only be added.
     - You can also overwrite configs in the controller using `$this->view->config();`. More detail please see the `Public Methods` part.
     - Partial name starts with a underscore. It is not necessary but it makes you distinguish between action views and partials easier.
   
@@ -81,7 +81,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
           content-language: en-US
 
         name:
-          keywords: default, description, about, this, site
+          keywords: default, keywords, about, this, site
           description: default description about this site
           robots: index, follow
 
@@ -89,7 +89,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
         # for those css file hosted on cdn you do not want to combine and minify put them here
         cdn:
 
-        # all the files here will be combined to one css file  
+        # all the files here will be combined to one css file on production mode
         site:
           - common/reset
           - common/util
@@ -112,6 +112,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     # actions
     # common settings for all actions in this controller
     common:
+      # if you set this to false all action will not use layout
       has_layout: true
   
       # use different layout for all actions in this controller
@@ -142,7 +143,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     # configs for each action
     index:
       title:
-        some different title for this action
+        some different title for this action 
 
       metas:
         https:
@@ -172,7 +173,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
     
 ## IMPORTANT
-> If you have 4 js files listed in `application/views/common/config.yml`, 3 js files listed in `common` section and 2 files listed in `[action name]` section in `application/views/[controller name]/config.yml`. You will have 3 files in total in `production mode`. The first file will be used through out the `whole application`, the second file will be used in `all actions in this controller` and the last file will be used in that `specific action` only.
+> If you have 4 js files listed in `application/views/common/config.yml`, 3 js files listed in `common` section and 2 files listed in `[action name]` section in `application/views/[controller name]/config.yml`. You will have 3 js files in total in `production mode` in `assets/cacje/` folder. The first file will be used through out the `whole application`, the second file will be used in `all actions in this controller` and the last file will be used in the `specific action` only.
 
 ## Layouts
 > A real simple layout example
@@ -191,12 +192,14 @@ Therefore I wrote this view library for codeigniter, you will find this really u
             <p>A real simple layout example</p>
           </div>
           <div id="content">
+            <!-- yield this block for action view -->
             <?=$yield?>
           </div>
           <div id="footer">
             Your footer goes here
           </div>
         </div>
+        <!-- js file at the bottom for faster loading page -->
         <?$this->view->asset('js')?>
       </body>
     </html>
@@ -313,7 +316,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - description: the path of the partial
   - data type: string
   - default value: there is no default value
-  - possible value: 'common/_nav', 'about/_lang' ...
+  - possible value: `common/_nav`, `about/_lang` ...
 
 > $data
 
@@ -380,7 +383,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
       - description: what layout you want to use
       - possible value: 'admin', 'shops' ...
     - with `$prop = 'uni_title'`:
-      - description: generate a unique title using meta description
+      - description: generate a unique title using title plus meta description
       - default value: true
       - possible value: true, false
   - example code
@@ -416,7 +419,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
   - *Make sure your assets/cache folder is writable
 
 ## Demo
-Drop example_site folder to your web root, go to http://localhost/example_site/ to see how it works.
+Drop `example_site` folder to your web root, go to http://localhost/example_site/ to see how it works.
 
 ## TODO
 Cache YAML file look up result in the next version.

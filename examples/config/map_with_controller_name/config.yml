@@ -1,6 +1,7 @@
 # actions
 # common settings for all actions in this controller
 common:
+  # if you set this to false all action will not use layout
   has_layout: true
   
   # use different layout for all actions in this controller

@@ -16,7 +16,7 @@ default: // <-- this maps your layout file name
       content-language: en-US
 
     name:
-      keywords: default, description, about, this, site
+      keywords: default, keywords, about, this, site
       description: default description about this site
       robots: index, follow
 
