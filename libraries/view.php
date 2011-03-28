@@ -4,7 +4,6 @@
 class View{
 
   private $_CI;
-  private $_lang = '';
   private $_unic;
   private $_controller;
   private $_action;
@@ -120,7 +119,7 @@ class View{
   
   // set `library` configs
   public function set($prop, $val)
-  { // set template, uni title, lang ... etc
+  { // set template, uni title ... etc
     $this->{'_'.$prop} = $val;
     return $this;
   }
@@ -155,8 +154,7 @@ class View{
 
   private function _configs($path='common')
   {
-    $lang = $this->_lang == '' ? '' : "_{$this->_lang}";
-    $config = APPPATH."views/{$path}/config{$lang}.yml";
+    $config = APPPATH."views/{$path}/config.yml";
     return @file_exists($config) ?
       $this->_CI->yaml->load($config) :
       NULL;
