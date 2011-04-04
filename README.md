@@ -15,7 +15,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 ## Features
   - Manage layouts, page title, metas, css and js with YAML file for cleaner and lighter controllers.
-  - Default configs can be overwritten in controller configs.
+  - Default configs can be overwritten in controller configs. So that you can split your css and js into smaller files for more flexible design.
   - Combine and minify css and js files in production mode for faster page loading.
 
 ## Installation
@@ -67,11 +67,10 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     has_layout: true
 
     # default layout name
-    layout:
-      default
+    layout: default
 
     #layouts
-    default: // <-- this maps your layout file name
+    default: # <-- this maps your layout file name
       title: default title for the entire application
 
       metas:
@@ -420,6 +419,10 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 
 ## Demo
 Drop `example_site` folder to your web root, go to http://localhost/example_site/ to see how it works.
+
+## Documentation
+- There is a syntax highlight version, please see [this post](http://dreamerslab.com/blog/en/codeigniter-view-library/).
+- For chinese version please go [here](http://dreamerslab.com/blog/tw/codeigniter-view-library/).
 
 ## TODO
 Cache YAML file look up result in the next version.

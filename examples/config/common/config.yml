@@ -2,11 +2,10 @@
 has_layout: true
 
 # default layout name
-layout:
-  default
+layout: default
 
 #layouts
-default: // <-- this maps your layout file name
+default: # <-- this maps your layout file name
   title: default title for the entire application
 
   metas:
