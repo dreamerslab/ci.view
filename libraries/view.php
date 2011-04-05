@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-// add set func to set _uni_title, _layout in the controller
 
 class View{
 
@@ -117,9 +116,10 @@ class View{
     return $this;
   }
   
-  // set `library` configs
+  // set `library` configs. 
+  // template, uni title ... etc
   public function set($prop, $val)
-  { // set template, uni title ... etc
+  {
     $this->{'_'.$prop} = $val;
     return $this;
   }
