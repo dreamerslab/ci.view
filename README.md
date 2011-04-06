@@ -421,8 +421,8 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 Drop `example_site` folder to your web root, go to http://localhost/example_site/ to see how it works.
 
 ## Documentation
-- There is a syntax highlight version, please see [this post](http://dreamerslab.com/blog/en/codeigniter-view-library/).
-- For chinese version please go [here](http://dreamerslab.com/blog/tw/codeigniter-view-library/).
+- There is a syntax highlight version, please see [this post](http://dreamerslab.com/blog/en/codeigniter-view-library/)
+- For chinese version please go [here](http://dreamerslab.com/blog/tw/codeigniter-view-library/)
 
 ## TODO
 Cache YAML file look up result in the next version.
