@@ -1,4 +1,4 @@
-<?
+<?php 
   $this->view->partial('common/_sub_nav', array(
     'sub_nav' => array(
       array('title' => 'Email Us', 'href' => 'contact/index', 'nav_selected' => 'Email Us'),
@@ -8,7 +8,7 @@
 
 <div id="main">
   <div id="email" class="clearfix">
-    <h2><?=$heading?></h2>
+    <h2><?php echo $heading; ?></h2>
     <div class="spliter spacer40"></div>
     <div id="info" class="float-l">
       <div class="row">
@@ -29,24 +29,24 @@
       </div>
     </div>
     <div id="form" class="float-r">
-      <?=form_open('contact/send', array('id' => 'email-form'))?>
+      <?php echo form_open('contact/send', array('id' => 'email-form')); ?>
       <div class="row">
         <label for="contact-name">Name:</label>
-        <?=form_input(array('id' => 'contact-name', 'name' => 'name', 'value' => $name, 'class' => 'text'))?>
-        <?=form_error('name', '<label class="error">', '</label>')?>
+        <?php echo form_input(array('id' => 'contact-name', 'name' => 'name', 'value' => $name, 'class' => 'text')); ?>
+        <?php echo form_error('name', '<label class="error">', '</label>'); ?>
       </div>
       <div class="row">
         <label for="contact-email">Email:</label>
-        <?=form_input(array('id' => 'contact-email', 'name' => 'email', 'value' => $email, 'class' => 'text'))?>
-        <?=form_error('email', '<label class="error">', '</label>')?>
+        <?php echo form_input(array('id' => 'contact-email', 'name' => 'email', 'value' => $email, 'class' => 'text')); ?>
+        <?php echo form_error('email', '<label class="error">', '</label>'); ?>
       </div>
       <div class="row">
         <label for="contact-comments">Comments:</label>
-        <?=form_textarea(array('id' => 'contact-comments', 'name' => 'comments', 'value' => $comments, 'cols' => 24, 'rows' => 6 ))?>
-        <?=form_error('comments', '<label class="error">', '</label>')?>
+        <?php echo form_textarea(array('id' => 'contact-comments', 'name' => 'comments', 'value' => $comments, 'cols' => 24, 'rows' => 6 )); ?>
+        <?php echo form_error('comments', '<label class="error">', '</label>'); ?>
       </div>
-      <?=form_submit(array('class' => 'btn', 'name' => 'submit', 'value' => 'Send'))?>
-      <?=form_close()?>
+      <?php echo form_submit(array('class' => 'btn', 'name' => 'submit', 'value' => 'Send')); ?>
+      <?php echo form_close(); ?>
     </div>
   </div>
 

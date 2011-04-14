@@ -177,29 +177,29 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 ## Layouts
 > A real simple layout example
 
-    <?=doctype('xhtml1-trans')?>
+    <?php echo doctype('xhtml1-trans'); ?>
       <head>
-        <?$this->view->metas()?>
-        <?$this->view->title()?>
-        <?$this->view->asset('css')?>
-        <?=link_tag( base_url().'favicon.png', 'shortcut icon', 'image/ico')?>
+        <?php $this->view->metas(); ?>
+        <?php $this->view->title(); ?>
+        <?php $this->view->asset('css'); ?>
+        <?php echo link_tag( base_url().'favicon.png', 'shortcut icon', 'image/ico'); ?>
       </head>
       <body>
         <div id="wrap">
           <div id="header">
-            <h1><?=$title?></h1>
+            <h1><?php echo $title; ?></h1>
             <p>A real simple layout example</p>
           </div>
           <div id="content">
             <!-- yield this block for action view -->
-            <?=$yield?>
+            <?php echo $yield; ?>
           </div>
           <div id="footer">
             Your footer goes here
           </div>
         </div>
         <!-- js file at the bottom for faster loading page -->
-        <?$this->view->asset('js')?>
+        <?php $this->view->asset('js'); ?>
       </body>
     </html>
     
@@ -222,7 +222,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
     // this will print out all js script tag
     // you can also put this line before the 
     // closing body tag(</body>) for faster page loading
-    <?$this->view->asset('js')?>
+    <?php $this->view->asset('js'); ?>
 
 #### config($configs)
   - description: modify or add config in the controller
@@ -286,7 +286,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 > In the layout file inside head tag
 
     // this will print out all meta tags
-    <?$this->view->metas()?>
+    <?php $this->view->metas(); ?>
     
 #### parse($data=null)
   - description: parse action views using codeigniter [Template Parser Class](http://codeigniter.com/user_guide/libraries/parser.html)
@@ -330,7 +330,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 > In the layout or action view files. ex. about/index.php
     
     // render partial 'common/_sub_nav.php' in 'about/index.php'
-    <?
+    <?php
       $this->view->partial('common/_sub_nav', array(
         'sub_nav' => array(
           array('title' => lang('works.apps'), 'href' => 'apps'),
@@ -406,7 +406,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 > In the layout file inside head tag
   
     // this will print out the title tag
-    <?$this->view->title()?>
+    <?php $this->view->title(); ?>
 
 ## Development
   - Set `$config['dev'] = TRUE;` in `application/config/carabiner.php` (around line 63)

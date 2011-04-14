@@ -7,25 +7,25 @@ class About extends CI_Controller{
     parent::__construct();
     
     // add class 'selected' to navigation menu 
-    $data['nav_selected'] = 'about';
+    $this->_data['nav_selected'] = 'about';
     
-    // render views for all actions in this controller
-    $this->view->render($data);
+    // do not do $this->view->render(); here
+    // otherwise the 404 error may not work
   }
   
   public function index()
   {
-    
+    $this->view->render($this->_data);
   }
   
   public function site()
   {
-    
+    $this->view->render($this->_data);
   }
   
   public function author()
   {
-    
+    $this->view->render($this->_data);
   }
 }
 // End of About class

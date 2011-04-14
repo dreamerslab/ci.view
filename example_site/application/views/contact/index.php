@@ -1,4 +1,4 @@
-<?
+<?php
   $this->view->partial('contact/_base', array(
     'heading' => 'Feel free to contact us if you have any question :)',
     'name' => set_value('name'),

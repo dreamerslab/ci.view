@@ -1,4 +1,4 @@
-<?
+<?php
   $this->view->partial('common/_sub_nav', array(
     'sub_nav' => array(
       array('title' => 'Intro', 'href' => site_url('about/index'), 'nav_selected' => 'Author'),
