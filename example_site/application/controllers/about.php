@@ -20,7 +20,25 @@ class About extends CI_Controller{
   
   public function site()
   {
-    $this->view->render($this->_data);
+    // overwrite configs example
+    $this->view->config(array(
+      'title' => 'MY ACTION CUSTOM TITLE',
+      'metas' => array(
+        'name' => array(
+          'keywords' => 'MY ACTION CUSTOM KEYWORDS',
+          'description' => 'MY ACTION CUSTOM DESCRIPTION'
+        )
+      ),
+      'js' => array(
+        'cdn' => array(
+          'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min'
+        ),
+        'site' => array('example','another_example')
+      ),
+      'css' => array(
+        'site' => array('example','another_example')
+      )
+    ))->render($this->_data);
   }
   
   public function author()

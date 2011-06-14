@@ -217,7 +217,7 @@ Therefore I wrote this view library for codeigniter, you will find this really u
 > In the layout file inside head tag
 
     // this will print out all css link tag
-    <?$this->view->asset('css')?>
+    <?php $this->view->asset('css')?>
     
     // this will print out all js script tag
     // you can also put this line before the 
@@ -241,10 +241,10 @@ Therefore I wrote this view library for codeigniter, you will find this really u
           'cdn' => array(
             'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min'
           ),
-          'site' => array('some_util_js','another_util_js')
+          'site' => array('example', 'another_example')
         ),
         'css' => array(
-          'site' => array('some_util_css','another_util_css')
+          'site' => array('example','another_example')
         )
       ))->render();
     }
@@ -270,8 +270,8 @@ Therefore I wrote this view library for codeigniter, you will find this really u
         'title' => $product->title,
         'metas' => array(
           'name' => array(
-            keywords => $product->keywords,
-            description => $product->description
+            'keywords' => $product->keywords,
+            'description' => $product->description
           )
         )
       ))->render();

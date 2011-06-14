@@ -21,6 +21,7 @@ class View{
     $this->_controller = $this->_CI->router->fetch_class();
     $this->_action = $this->_CI->router->fetch_method();
     $this->_unic = "{$this->_controller}_{$this->_action}";
+    $this->_yaml_configs();
     log_message('debug', 'View: Library initialized.');
   }
   
@@ -58,8 +59,8 @@ class View{
   {
     $this->_merge('css', $configs)
          ->_merge('js', $configs)
-         ->_walk_through('metas', $this->_data, $configs)
-         ->_set('title', $this->_data, $configs);
+         ->_walk_through('metas', $configs)
+         ->_set('title', $configs);
     return $this;
   }
   
@@ -89,7 +90,6 @@ class View{
   // with parse, data to be use in partial can only be set in controller
   public function parse($data=null)
   {
-    $this->_yaml_configs();
     if(isset($this->_layout)){
       $this->_CI->parser->parse("layouts/{$this->_layout}", $this->_data($data));
       log_message('debug', 'View: parse view');
@@ -108,7 +108,6 @@ class View{
   //render action views
   public function render($data=null)
   {
-    $this->_yaml_configs();
     if(isset($this->_layout)){
       $this->_CI->load->view("layouts/{$this->_layout}", $this->_data($data), false);
       log_message('debug', 'View: render view');
@@ -192,7 +191,7 @@ class View{
         $this->_data["{$type}"]["{$this->_unic}"] = array();
       }
       $this->_data["{$type}"]["{$this->_unic}"] = 
-      array_merge_recursive_distinct($this->_data["{$type}"]["{$this->_unic}"], $configs["{$type}"]);
+      array_merge_recursive_distinct($configs["{$type}"], $this->_data["{$type}"]["{$this->_unic}"]);
     }
     return $this;
   }
